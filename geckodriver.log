@@ -20464,3 +20464,231 @@ Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1678758468224	geckodriver	INFO	Listening on 127.0.0.1:60105
+1678758471319	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/h_/5lk5_vv5747gtf2knlmrn4r80000gn/T/rust_mozprofileADN2Om"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1678758471588	Marionette	INFO	Marionette enabled
+1678758471681	Marionette	INFO	Listening on port 60112
+Read port: 60112
+1678758472122	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript warning: https://rollbit.com/static/js/3675.a254e32e.chunk.js, line 1: WebGL context was lost.
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/h_/5lk5_vv5747gtf2knlmrn4r80000gn/T/rust_mozprofileADN2Om/thumbnails) because it does not exist
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+1678758513515	geckodriver	INFO	Listening on 127.0.0.1:60287
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+1678758523529	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/h_/5lk5_vv5747gtf2knlmrn4r80000gn/T/rust_mozprofileE1VDr1"
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1678758524132	Marionette	INFO	Marionette enabled
+1678758524480	Marionette	INFO	Listening on port 60294
+Read port: 60294
+Read port: 60294
+Read port: 60294
+1678758527225	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/h_/5lk5_vv5747gtf2knlmrn4r80000gn/T/rust_mozprofileE1VDr1/thumbnails) because it does not exist
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+1678758763489	geckodriver	INFO	Listening on 127.0.0.1:60453
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+1678758766502	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/h_/5lk5_vv5747gtf2knlmrn4r80000gn/T/rust_mozprofilebH0OYv"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1678758766743	Marionette	INFO	Marionette enabled
+1678758766827	Marionette	INFO	Listening on port 60461
+Read port: 60461
+1678758767175	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/h_/5lk5_vv5747gtf2knlmrn4r80000gn/T/rust_mozprofilebH0OYv/thumbnails) because it does not exist
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+1678759085776	geckodriver	INFO	Listening on 127.0.0.1:60611
+1678759088853	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-foreground" "-no-remote" "-profile" "/var/folders/h_/5lk5_vv5747gtf2knlmrn4r80000gn/T/rust_mozprofileVTC7ZU"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1678759089113	Marionette	INFO	Marionette enabled
+1678759089201	Marionette	INFO	Listening on port 60620
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+Read port: 60620
+1678759089618	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
+JavaScript error: moz-extension://4a4fe6ab-08fc-4d83-a2a8-c96bf10cc80e/js/native.js, line 72: TypeError: nativePort is null
