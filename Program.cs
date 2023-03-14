@@ -8,13 +8,22 @@ bool verbose = false;
 bool isTest = false;// true;// true;
 List<double> betList = new List<double>();
 double dummyBet = 0.01;
-double betOne = 0.05;// [Working 0.02, 0.05] [Test 0.1]
-double increment = 2.2;// [Working 2.2, 2.2] [Test 2.2]
+//dummyBet should not = betOne
+double betOne = 0.02;// [Working 0.02, 0.05] [Test 0.02]
+double increment = 2.5;// [Working 2.2, 2.2] [Test 2.5]
 //betList.Add(dummyBet);
 string bankOutput = "";
 double betAmount = betOne;
-int thresholdBets = 61;// [Working 30, 61] [Test 121]
+int thresholdBets = 121;// [Working 30, 61] [Test 121]
 int badRuns = 0;
+double carryforwardDebt = 0;
+double largestCarryForwardDebt = 0;
+double divideDebt = 10.0;
+double chargingDebt = 0;
+string inputContents = "0";
+string outputContents = "0";
+string predictedBetNumber = "0";
+string predictedBetAmount = "0";
 double worstBet = 0.0;
 //for (int x = 0; x < betCount; x++)
 while (betAmount < thresholdBets)
@@ -25,8 +34,8 @@ while (betAmount < thresholdBets)
     
 }
 Console.WriteLine(bankOutput);
-double baseMultiplier = 1;// 5;
-double multiplier = baseMultiplier;
+//double baseMultiplier = 1;// 5;
+//double multiplier = baseMultiplier;
 double highestBalance = 0;
 int roundIndex = 0;
 //double largestBet = 0;
@@ -36,7 +45,7 @@ var lastEntries = new List<string>();
 int showHistory = 5;
 int threshold = 5;
 var focus = -1;
-var defaultBaseBet = 1;
+var defaultBaseBet = betOne;// 1;
 var history = new List<int>();
 string lastPrediction = "";
 string additionalOutput = "\n";
@@ -52,7 +61,7 @@ var predictedConsective = 0;
 var predictedLargestConsecutive = 0;
 var minEntry = 1;// 1;
 var maxEntry = 2;// 4;
-var multiplyCounter = 0;
+//var multiplyCounter = 0;
 Dictionary<int, int> tDic = new Dictionary<int, int>();
 var filePath = "/Users/ramiemera/Documents/Rollbot/CoinFlip/SanTan/data.txt";
 StreamReader reader = new StreamReader(File.OpenRead(filePath));
@@ -103,20 +112,21 @@ void AddNumber(string line, bool write)
                 {
                    // round = 0;
                     roundIndex = 0;
-                    if (multiplier > baseMultiplier)
-                    {
-                        multiplyCounter += 1;
-                        if (multiplyCounter > 10)
-                        {
-                            multiplier = baseMultiplier;
-                            Console.WriteLine("Reached 10 high risk wins... reset multiplier");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Need 10 wins on high risk. Only at " + multiplyCounter);
-                        }
-                    }
-                    //Console.WriteLine("Bad Reset");
+                    //if (multiplier > baseMultiplier)
+                    //{
+                    //    multiplyCounter += 1;
+                    //    if (multiplyCounter > 10)
+                    //    {
+                    //        multiplier = baseMultiplier;
+                    //        multiplyCounter = 0;
+                    //        Console.WriteLine("Reached 10 high risk wins... reset multiplier");
+                    //    }
+                    //    else
+                    //    {
+                    //        Console.WriteLine("Need 10 wins on high risk. Only at " + multiplyCounter);
+                    //    }
+                    //}
+                    ////Console.WriteLine("Bad Reset");
                 }
                 predictedLoses = 0;
                 predictedConsective = 0;
@@ -135,16 +145,16 @@ void AddNumber(string line, bool write)
                         roundIndex = 0;
                         history = new List<int>();
                         worstBet = 0.0;
-                        if (multiplier == baseMultiplier)
-                        {
-                            Console.WriteLine("Raise to high risk bets" + multiplyCounter);
-                            multiplier *= 10;
-                        }
-                        else
-                        {
-                            Console.WriteLine("High risk just lost..." + multiplyCounter);
-                            multiplier = baseMultiplier;
-                        }
+                        //if (multiplier == baseMultiplier)
+                        //{
+                        //    Console.WriteLine("Raise to high risk bets" + multiplyCounter);
+                        //    //multiplier *= 10;
+                        //}
+                        //else
+                        //{
+                        //    Console.WriteLine("High risk just lost..." + multiplyCounter);
+                        //    multiplier = baseMultiplier;
+                        //}
                     }
                     //if (predictedLoses == betTurns)
                     //{
@@ -227,7 +237,7 @@ Dictionary<int, List<float>> LoopHistory(int patternIndex, Dictionary<int, List<
                     {
                         lowestBalance = balance;
                     }
-                    baseBet *= 2;
+                    baseBet *= increment;//2;
                     //if (baseBet > largestBet)
                     //{
                     //    largestBet = baseBet;
@@ -438,15 +448,20 @@ void ProcessPatterns(bool isPrivate)
             predictedBet = key;
             if (!isPrivate)
             {
+                //Risks more try it with low bets.
+                //if (roundIndex <= betList.Count - 1 && predictedLoses >= 0 && predictedLoses <= betTurns)
+                //Risks less trying now with big bets - testing
                 if (roundIndex < betList.Count - 1 && predictedLoses >= 0 && predictedLoses <= betTurns)
                 {
                     if (verbose)
                     {
-                        additionalOutput += "BET: $" + (betList[roundIndex] * multiplier) + " @[ " + predictedBet + " ] -- ";
+                        //additionalOutput += "BET: $" + (betList[roundIndex] * multiplier) + " @[ " + predictedBet + " ] -- ";
+                        additionalOutput += "BET: $" + betList[roundIndex] + " @[ " + predictedBet + " ] -- ";
                     }
                     else
                     {
-                        additionalOutput += "BET: $" + (betList[roundIndex] * multiplier) + " @[ " + predictedBet + " ]";
+                        //additionalOutput += "BET: $" + (betList[roundIndex] * multiplier) + " @[ " + predictedBet + " ]";
+                        additionalOutput += "BET: $" + betList[roundIndex]  + " @[ " + predictedBet + " ]";
                     }
                     if (isTest)
                     {
@@ -454,7 +469,8 @@ void ProcessPatterns(bool isPrivate)
                     }
                     else
                     {
-                        fileOutput = betList[roundIndex] * multiplier + "," + predictedBet;
+                        //fileOutput = betList[roundIndex] * multiplier + "," + predictedBet;
+                        fileOutput = betList[roundIndex] + "," + predictedBet;
                     }
                 }
                 else
@@ -479,14 +495,16 @@ void ProcessPatterns(bool isPrivate)
             }
             else
             {
-                lastPrediction = "BET: $" + (betList[roundIndex] * multiplier) + " @[ " + predictedBet + " ]";
+                //lastPrediction = "BET: $" + (betList[roundIndex] * multiplier) + " @[ " + predictedBet + " ]";
+                lastPrediction = "BET: $" + betList[roundIndex] + " @[ " + predictedBet + " ]";
                 if (isTest)
                 {
                     fileOutput = "0.01," + predictedBet;
                 }
                 else
                 {
-                    fileOutput = (betList[roundIndex] * multiplier) + "," + predictedBet;
+                    //fileOutput = (betList[roundIndex] * multiplier) + "," + predictedBet;
+                    fileOutput = betList[roundIndex] + "," + predictedBet;
                 }
             }
         }
@@ -564,15 +582,26 @@ void writeToOutput(){
     double currentBet;
     if (double.TryParse(fileOutput.Split(',')[0], out currentBet))
     {
+        if (currentBet == betOne && carryforwardDebt > 0)
+        {
+            chargingDebt = carryforwardDebt / divideDebt;
+            currentBet += chargingDebt;
+            Console.WriteLine("Special Bet: $" + currentBet);
+        }
         if (currentBet > worstBet)
         {
             worstBet = currentBet;
             Console.WriteLine("Worst Bet: $" + worstBet);
         }
     }
+
     using (StreamWriter outputFile = File.CreateText(outputFilename))
     {
         outputFile.WriteLine(fileOutput);
+        outputContents = fileOutput.Trim();
+        string[] outputValues = outputContents.Split(',');
+        predictedBetAmount = outputValues[0];
+        predictedBetNumber = outputValues[1];
         outputFile.Close();
     }
 }
@@ -826,8 +855,10 @@ void CalculateRequiredBal()
     //Console.WriteLine("Multiplier: " + multiplier);
     for (int i = 0; i < betList.Count; i++)
     {
-        outputBank += (betList[i] * multiplier) + ", ";
-        askingBalance += betList[i] * multiplier;// * 3;
+        //outputBank += (betList[i] * multiplier) + ", ";
+        outputBank += betList[i] + ", ";
+        //askingBalance += betList[i] * multiplier;// * 3;
+        askingBalance += betList[i];
     }
     Console.WriteLine("Balance at least required: $" + String.Format("{0:n0}", askingBalance) + outputBank);
 }
@@ -852,6 +883,42 @@ while (ask)
             if (fileContent.Length != 0)
             {
                 //Console.WriteLine("Input file is not emptyl");
+                inputContents = fileContent.Trim();
+
+                if (inputContents == predictedBetNumber)
+                {
+                    double amountNum;
+                    if (double.TryParse(predictedBetAmount, out amountNum))
+                    {
+                        carryforwardDebt -= amountNum;
+                        if (carryforwardDebt < 0)
+                        {
+                            carryforwardDebt = 0;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid number format");
+                    }
+                }
+                else
+                {
+                    double amountNum;
+                    if (double.TryParse(predictedBetAmount, out amountNum))
+                    {
+                        carryforwardDebt += amountNum;
+                        if (carryforwardDebt > largestCarryForwardDebt)
+                        {
+                            largestCarryForwardDebt = carryforwardDebt;
+                            Console.WriteLine("Largest Debt: " + largestCarryForwardDebt);
+                        }
+                    }
+                        // If the outcome doesn't match, add the predicted bet amount to the carryforwardDebt variable
+                        //carryforwardDebt += int.Parse(predictedBetAmount);
+                    //Console.WriteLine($"Sorry, you lost. Your carryforward debt is now {carryforwardDebt}.");
+                }
+
+
                 fileOutput = "";
                 val = File.ReadLines(inputFilename).First();
                 //Console.WriteLine("Input file value: " + val);
@@ -871,21 +938,21 @@ while (ask)
 
                     }
                 }
-                else if (val.StartsWith("/"))
-                {
-                    val = val.Substring(1);
-                    try
-                    {
-                        int divide = int.Parse(val);
-                        Console.WriteLine(divide);
-                        multiplier = multiplier / divide;
-                    }
-                    catch
-                    {
-                        multiplier = baseMultiplier;
-                    }
-                    CalculateRequiredBal();
-                }
+                //else if (val.StartsWith("/"))
+                //{
+                //    val = val.Substring(1);
+                //    try
+                //    {
+                //        int divide = int.Parse(val);
+                //        Console.WriteLine(divide);
+                //        multiplier = multiplier / divide;
+                //    }
+                //    catch
+                //    {
+                //        multiplier = baseMultiplier;
+                //    }
+                //    CalculateRequiredBal();
+                //}
                 else if (val.StartsWith("<"))
                 {
 

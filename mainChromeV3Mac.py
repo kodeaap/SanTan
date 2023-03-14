@@ -43,14 +43,18 @@ def main():
             #print(f'>>> Waiting for {wait_time:.2f} seconds')
             time.sleep(wait_time)
 
-            # Wait for the element containing the "$" character to be present on the page
-            #dollar_element = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'Flipping')]")))
+            # Find all elements containing text that starts with "$"
+            dollar_elems = driver.find_elements_by_xpath(".//*[starts-with(text(), '$')]")
 
-            # Get the text of the dollar element
-            #dollar_amount = dollar_element.text
+            # Check if the value of dollar_elems at index 4 is greater than or equal to the value at index 5
+            if len(dollar_elems) > 5 and float(dollar_elems[4].text[1:]) >= float(dollar_elems[5].text[1:]):
+                # Stop the script if condition is true
+                print("Reached Required Limit...Stopping Program");
+                quit()
 
-            # Print the dollar amount
-            #print(dollar_amount)
+            # Iterate over the dollar elements and print each one along with its index
+            for i, dollar_elem in enumerate(dollar_elems):
+                print(f"{i + 1}. {dollar_elem.text}")
 
             elm = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, coin_element)))
             driver.execute_script("arguments[0].click();", elm)
