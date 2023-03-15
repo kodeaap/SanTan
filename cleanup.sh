@@ -6,6 +6,9 @@ cd /Users/ramiemera/Documents/Rollbot/CoinFlip/SanTan
 # delete all files named output.txt
 rm -f output.txt
 
+# delete all files named tempOut.txt
+rm -f tempOut.txt
+
 # check if input.txt exists
 if [ ! -f input.txt ]; then
   # if it doesn't, duplicate inputBackup.txt and rename it to backup.txt

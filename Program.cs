@@ -68,8 +68,10 @@ StreamReader reader = new StreamReader(File.OpenRead(filePath));
 StreamWriter writer = new StreamWriter(filePath, append: true);
 List<string> lines = new List<string>();
 string inputFilename = "/Users/ramiemera/Documents/Rollbot/CoinFlip/SanTan/input.txt";
-string outputFilename = "/Users/ramiemera/Documents/Rollbot/CoinFlip/SanTan/output.txt";
+string outputFilename = "/Users/ramiemera/Documents/Rollbot/CoinFlip/SanTan/tempOut.txt";
+string newOutputFilename = "/Users/ramiemera/Documents/Rollbot/CoinFlip/SanTan/output.txt";
 string fileOutput = "";
+double largestBalance = 0;
 while (reader.EndOfStream == false) // read all lines in file until end
 {
     string line = reader.ReadLine();
@@ -586,6 +588,7 @@ void writeToOutput(){
         {
             chargingDebt = carryforwardDebt / divideDebt;
             currentBet += chargingDebt;
+            currentBet = Math.Round(currentBet, 2);
             Console.WriteLine("Special Bet: $" + currentBet);
         }
         if (currentBet > worstBet)
@@ -604,6 +607,9 @@ void writeToOutput(){
         predictedBetNumber = outputValues[1];
         outputFile.Close();
     }
+
+    // Rename the output file to the new name
+    File.Move(outputFilename, newOutputFilename);
 }
 
 Dictionary<int, List<float>> CalculatRanking(Dictionary<int, List<float>> results)
@@ -882,41 +888,74 @@ while (ask)
             //Console.WriteLine("Input file is not null");
             if (fileContent.Length != 0)
             {
-                //Console.WriteLine("Input file is not emptyl");
-                inputContents = fileContent.Trim();
+                // Split fileContent using comma as the separator
+                string[] parts = fileContent.Split(',');
 
-                if (inputContents == predictedBetNumber)
+                // Assign the first value (index 0 - left of comma) to inputContents
+                inputContents = parts[0];
+
+                // Try to parse the second value (index 1 - right of comma) as a double
+                if (parts.Length > 1 && double.TryParse(parts[1], out double currentbalance))
                 {
-                    double amountNum;
-                    if (double.TryParse(predictedBetAmount, out amountNum))
+                    // Successfully parsed as double, now currentbalance contains the double value
+                    if (currentbalance > largestBalance)
                     {
-                        carryforwardDebt -= amountNum;
-                        if (carryforwardDebt < 0)
-                        {
-                            carryforwardDebt = 0;
-                        }
+                        largestBalance = currentbalance;
                     }
                     else
                     {
-                        Console.WriteLine("Invalid number format");
+                        double delta = largestBalance - currentbalance;
+                        if (delta > carryforwardDebt)
+                        {
+                            carryforwardDebt = delta;
+                        }
+
+                        if (carryforwardDebt > largestCarryForwardDebt)
+                        {
+                            largestCarryForwardDebt = carryforwardDebt;
+                            Console.WriteLine("Current Debt: " + largestCarryForwardDebt);
+                        }
                     }
                 }
                 else
                 {
-                    double amountNum;
-                    if (double.TryParse(predictedBetAmount, out amountNum))
-                    {
-                        carryforwardDebt += amountNum;
-                        if (carryforwardDebt > largestCarryForwardDebt)
-                        {
-                            largestCarryForwardDebt = carryforwardDebt;
-                            Console.WriteLine("Largest Debt: " + largestCarryForwardDebt);
-                        }
-                    }
-                        // If the outcome doesn't match, add the predicted bet amount to the carryforwardDebt variable
-                        //carryforwardDebt += int.Parse(predictedBetAmount);
-                    //Console.WriteLine($"Sorry, you lost. Your carryforward debt is now {carryforwardDebt}.");
+                    // Failed to parse as double, handle the error here
+                    Console.WriteLine("Failed to parse the balance as a double.");
                 }
+
+                //Old way of calculating debt
+                //if (inputContents == predictedBetNumber)
+                //{
+                //    //double amountNum;
+                //    //if (double.TryParse(predictedBetAmount, out amountNum))
+                //    //{
+                //    //    carryforwardDebt -= amountNum;
+                //    //    if (carryforwardDebt < 0)
+                //    //    {
+                //    //        carryforwardDebt = 0;
+                //    //    }
+                //    //}
+                //    //else
+                //    //{
+                //    //    Console.WriteLine("Invalid number format");
+                //    //}
+                //}
+                //else
+                //{
+                //    double amountNum;
+                //    if (double.TryParse(predictedBetAmount, out amountNum))
+                //    {
+                //        carryforwardDebt += amountNum;
+                //        if (carryforwardDebt > largestCarryForwardDebt)
+                //        {
+                //            largestCarryForwardDebt = carryforwardDebt;
+                //            Console.WriteLine("Largest Debt: " + largestCarryForwardDebt);
+                //        }
+                //    }
+                //        // If the outcome doesn't match, add the predicted bet amount to the carryforwardDebt variable
+                //        //carryforwardDebt += int.Parse(predictedBetAmount);
+                //    //Console.WriteLine($"Sorry, you lost. Your carryforward debt is now {carryforwardDebt}.");
+                //}
 
 
                 fileOutput = "";

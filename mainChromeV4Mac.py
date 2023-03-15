@@ -26,12 +26,16 @@ def main():
     status = 'Unknown'
     while True:
         try:
-            data = open('output.txt','r').readlines()[0]
+            while not os.path.isfile('output.txt'):
+                time.sleep(1)  # Sleep for 1 second and check again if the file exists
+
+            with open('output.txt', 'r') as f:
+                data = f.readlines()[0]
+
             data = data.split(',')
             bet_amount = data[0]
             side = data[1].strip()
             stat = ''
-            print(f'>>> Side: {side} | Amount: {bet_amount} | Status: {stat}')
             element = ''
             if side == '2':
                 coin_element = "//button[span='Tails']"
@@ -52,6 +56,20 @@ def main():
                 if value_4 >= value_5:
                     print('Reached Required Limit...Stopping Program')
                     quit()
+            else:
+                print('Check if you are using the right funds')
+
+            inputString = dollar_elems[1].text
+
+            # Split the string by lines
+            lines = inputString.split('\n')
+
+            # Get the first line
+            first_line = lines[0]
+
+            # Remove the $ sign and any commas
+            balance_str = first_line.replace('$', '').replace(',', '')
+            balance = float(balance_str)
 
             # Iterate over the dollar elements and print each one along with its index
             #for i, dollar_elem in enumerate(dollar_elems):
@@ -89,6 +107,8 @@ def main():
                     out = '1'
             else:
                 out = side
+            print(f'>>> Side: {side} | Amount: {bet_amount} | Status: {stat}')
+            out = f"{out},{balance}"
             fl = open('input.txt','w')
             fl.write(out)
             fl.close()
@@ -99,7 +119,7 @@ def main():
                 print('>>> Waiting for an hour...')
                 time.sleep(3600)
         except Exception as e:
-            pass
+            print(f"Error: {e}")
 
     driver.quit()
 
