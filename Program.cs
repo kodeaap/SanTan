@@ -74,23 +74,19 @@ string outputFilename = "/Users/ramiemera/Documents/Rollbot/CoinFlip/SanTan/temp
 string newOutputFilename = "/Users/ramiemera/Documents/Rollbot/CoinFlip/SanTan/output.txt";
 string fileOutput = "";
 double largestBalance = 0;
+bool betSpecial = false;
 while (reader.EndOfStream == false) // read all lines in file until end
 {
     string line = reader.ReadLine();
     if (line == null) continue;
     lines.Add(line);
-}//string readerInput = Convert.ToString(reader.ReadToEnd);
-    //if (readerInput != null)
-    //{
-    //string[] lines = readerInput.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
-    //string[] lines = readerInput.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-    //System.IO.File.ReadAllLines(@"/Users/ramiemera/Documents/Rollbot/CoinFlip/SanTan/data.txt");
-    //}
-    //reader.Close();
-    var pattern = new List<string> { "1",  "1",  "1",  "1",  "1",  "2",  "2",  "2",  "2",  "2",  "1",  "1",  "1",  "1",  "1",  "2",  "2",  "2",  "2",  "2",  "1",  "1",  "1",  "1",  "1",  "2",  "2",  "2",  "2",  "2",  "1",  "1",  "1",  "1",  "1",  "2",  "2",  "2",  "2",  "2"};
-//Function
-void AddNumber(string line, bool write)
+}
+var pattern = new List<string> { "1",  "1",  "1",  "1",  "1",  "2",  "2",  "2",  "2",  "2",  "1",  "1",  "1",  "1",  "1",  "2",  "2",  "2",  "2",  "2",  "1",  "1",  "1",  "1",  "1",  "2",  "2",  "2",  "2",  "2",  "1",  "1",  "1",  "1",  "1",  "2",  "2",  "2",  "2",  "2"};
+
+void AddNumber(string line, bool write)//, string callStr)
 {
+    //Console.WriteLine("Call From: " + callStr);
+    betSpecial = false;
     int newNum = int.Parse(line);
     if (newNum >= minEntry && newNum <= maxEntry)
     {
@@ -112,25 +108,14 @@ void AddNumber(string line, bool write)
                 {
                     tDic.Add(predictedLoses, 1);
                 }
+                if (roundIndex == 0)
+                {
+                    betSpecial = true;
+                    Console.WriteLine("Special Bet.");
+                }
                 if (predictedLoses >= 0 && predictedLoses <= betTurns)
                 {
-                   // round = 0;
                     roundIndex = 0;
-                    //if (multiplier > baseMultiplier)
-                    //{
-                    //    multiplyCounter += 1;
-                    //    if (multiplyCounter > 10)
-                    //    {
-                    //        multiplier = baseMultiplier;
-                    //        multiplyCounter = 0;
-                    //        Console.WriteLine("Reached 10 high risk wins... reset multiplier");
-                    //    }
-                    //    else
-                    //    {
-                    //        Console.WriteLine("Need 10 wins on high risk. Only at " + multiplyCounter);
-                    //    }
-                    //}
-                    ////Console.WriteLine("Bad Reset");
                 }
                 predictedLoses = 0;
                 predictedConsective = 0;
@@ -149,21 +134,7 @@ void AddNumber(string line, bool write)
                         roundIndex = 0;
                         history = new List<int>();
                         worstBet = 0.0;
-                        //if (multiplier == baseMultiplier)
-                        //{
-                        //    Console.WriteLine("Raise to high risk bets" + multiplyCounter);
-                        //    //multiplier *= 10;
-                        //}
-                        //else
-                        //{
-                        //    Console.WriteLine("High risk just lost..." + multiplyCounter);
-                        //    multiplier = baseMultiplier;
-                        //}
                     }
-                    //if (predictedLoses == betTurns)
-                    //{
-                    //    round++;
-                    //}
                 }
                 predictedLoses++;
                 predictedConsective++;
@@ -242,10 +213,6 @@ Dictionary<int, List<float>> LoopHistory(int patternIndex, Dictionary<int, List<
                         lowestBalance = balance;
                     }
                     baseBet *= increment;//2;
-                    //if (baseBet > largestBet)
-                    //{
-                    //    largestBet = baseBet;
-                    //}
                 }
                 turns++;
                 turnList[turnList.Count - 1] = turns;
@@ -260,10 +227,6 @@ Dictionary<int, List<float>> LoopHistory(int patternIndex, Dictionary<int, List<
 
     //CalculatePercentage
     List<float> newResults = new List<float>();
-    //if (patternIndex == 11)
-    // {
-    //    CalculatePercentage(turnList, true);
-    //}
     float percentage = -1;
     if (turnList.Count > 0)
     {
@@ -294,13 +257,7 @@ Dictionary<int, List<float>> LoopHistory(int patternIndex, Dictionary<int, List<
     //7 = Turns
     //8 = Rank
     newResults.Add((float)balance);//3
-    //try
-    //{
     newResults.Add(float.Parse(pattern[patternIndex + history.Count]));//4
-    //} catch (Exception e)
-    //{
-    //    Console.WriteLine("History Count: " + history.Count + ", Pattern Size: " + pattern.Count + ", PatternIndex: " + patternIndex);
-    //}
     newResults.Add((float)highestBet);//5
     newResults.Add((float)lowestBalance);//6
     int winTurns = 0;
@@ -358,8 +315,6 @@ void ProcessPatterns(bool isPrivate)
     rankingDictionary = rankingDictionary.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
 
     Dictionary<int, int> probabilityDictionary = new Dictionary<int, int>();
-
-    //List<int> nextBetList = new List<int>();
 
     foreach (KeyValuePair<int, float> entry in rankingDictionary)
     {
@@ -557,8 +512,6 @@ void ProcessPatterns(bool isPrivate)
             foreach (KeyValuePair<int, int> ent in tDic)
             {
                 int entKey = ent.Key;
-                //int entValue = ent.Value;
-                //Console.WriteLine(entKey + " --> " + entValue);
                 if (entKey <= betTurns)
                 {
                     winners++;
@@ -573,8 +526,6 @@ void ProcessPatterns(bool isPrivate)
                 additionalOutput = additionalOutput.Remove(additionalOutput.Length - 1);
             }
             float winPer = ((float)winners / (float)(winners + losers)) * 100.0f;
-            //Console.WriteLine("Wins: " + winners + " , Loses: " + losers);
-            //additionalOutput += " ||< M: " + median + " >|| [SM: " + small + "%] , [LG: " + large + "%], [ODD: " + odd + "%], [EVE: " + even + "%]";
             if (verbose)
             {
                 additionalOutput += " |||| [SM: " + small + "%] , [LG: " + large + "%], [ODD: " + odd + "%], [EVE: " + even + "%], [W%: " + (int)winPer + "%]";
@@ -590,23 +541,33 @@ void ProcessPatterns(bool isPrivate)
 
 void AdjustBetAmount(double currentBet, int betChoice)
 {
-    if (carryforwardDebt >= minCharge)
+    if (betSpecial)
     {
-        chargingDebt = carryforwardDebt / divideDebt;
-        chargingDebt = Math.Round(chargingDebt, 2);
-        if (chargingDebt < 1)
+        betSpecial = false;
+        if (carryforwardDebt > 0)
         {
-            chargingDebt = 1;
+            chargingDebt = carryforwardDebt / divideDebt;
+            chargingDebt = Math.Round(chargingDebt, 2);
+            if (chargingDebt < minCharge)
+            {
+                chargingDebt = 1.0;
+            }
         }
-    }
-    if (roundIndex == 0 && currentBet == betList[roundIndex] && carryforwardDebt > 0 && chargingDebt >= minCharge)
-    {
-        //isBetOne = true;
-        currentBet += chargingDebt;
-        currentBet = Math.Round(currentBet, 2);
-        //This might break due to risk and aggressive behaviro to get back to normal and make up for loses
-        fileOutput = currentBet + "," + betChoice;
-        Console.WriteLine("Adjusted Bet: $" + currentBet + ", Charging Debt: " + chargingDebt);
+        else
+        {
+            Console.WriteLine("But no debt");
+            return;
+        }
+        //if (roundIndex == 0 && currentBet == betList[roundIndex] && carryforwardDebt > 0 && chargingDebt >= minCharge)
+        if (chargingDebt > 0)
+        {
+            //isBetOne = true;
+            currentBet += chargingDebt;
+            currentBet = Math.Round(currentBet, 2);
+            //This might break due to risk and aggressive behaviro to get back to normal and make up for loses
+            fileOutput = currentBet + "," + betChoice;
+            Console.WriteLine("Adjusted Bet: $" + currentBet + ", Charging Debt: " + chargingDebt);
+        }
     }
     //return currentBet;
 }
@@ -616,19 +577,6 @@ void writeToOutput(){
     //isBetOne = false;
     if (double.TryParse(fileOutput.Split(',')[0], out currentBet))
     {
-        //Console.WriteLine("Current Bet: " + currentBet);
-        //Console.WriteLine("Bet One: " + betOne);
-        //Console.WriteLine("Charging Debt: " + chargingDebt);
-
-        //if (roundIndex == 0 && predictedLoses >= 0 && predictedLoses <= betTurns && currentBet == betOne && carryforwardDebt > 0 && chargingDebt >= (dummyBet * divideDebt))
-        //{
-        //    //isBetOne = true;
-        //    currentBet += chargingDebt;
-        //    currentBet = Math.Round(currentBet, 2);
-        //    //This might break due to risk and aggressive behaviro to get back to normal and make up for loses
-        //    fileOutput = currentBet + "," + fileOutput.Split(',')[1];
-        //    //Console.WriteLine("Special Bet: $" + currentBet);
-        //}
         if (currentBet > worstBet)
         {
             worstBet = currentBet;
@@ -639,7 +587,6 @@ void writeToOutput(){
 
     using (StreamWriter outputFile = File.CreateText(outputFilename))
     {
-        Console.WriteLine("Betting: $" + fileOutput.Split(",")[0]);
         outputFile.WriteLine(fileOutput);
         outputContents = fileOutput.Trim();
         string[] outputValues = outputContents.Split(',');
@@ -715,9 +662,7 @@ Dictionary<int, List<float>> CalculatRanking(Dictionary<int, List<float>> result
         else
         {
             negativeIndices.Add(patternInd);
-            //resultList.Add(0);
         }
-        //results[patternInd] = resultList;
     }
     ranking++;
     foreach (int negInd in negativeIndices)
@@ -740,7 +685,6 @@ Dictionary<int, List<float>> CalculatRanking(Dictionary<int, List<float>> result
 
         List<float> resultList = results[entry.Key];
         float oldRanking = resultList.Last();
-        //float newRanking = (oldRanking + ranking) / 2.0f;
         float newRanking = oldRanking + ranking;
         resultList[resultList.Count - 1] = newRanking;
         results[patternInd] = resultList;
@@ -755,7 +699,6 @@ Dictionary<int, List<float>> CalculatRanking(Dictionary<int, List<float>> result
 
         List<float> resultList = results[entry.Key];
         float oldRanking = resultList.Last();
-        //float newRanking = (oldRanking + ranking) / 2.0f;
         float newRanking = oldRanking + ranking;
         resultList[resultList.Count - 1] = newRanking;
         results[patternInd] = resultList;
@@ -771,7 +714,6 @@ Dictionary<int, List<float>> CalculatRanking(Dictionary<int, List<float>> result
         List<float> resultList = results[entry.Key];
         float oldRanking = resultList.Last();
         float newRanking = oldRanking + ranking;
-        //float newRanking = (oldRanking + ranking) / 4.0f;
         resultList[resultList.Count - 1] = newRanking;
         results[patternInd] = resultList;
     }
@@ -835,44 +777,44 @@ string GenerateDummyBet(string finalConsoleOutput)
     return finalConsoleOutput;
 }
 
-string getConsoleOutput()
-{
-    string finalConsoleOutput = "";
-    string consoleOutput = "";
-    if (!lastPrediction.Equals(""))
-    {
-        finalConsoleOutput = lastPrediction + "\n\n";
-        lastPrediction = "";
-    }
-    else if (additionalOutput.Trim().Equals(""))
-    {
-        finalConsoleOutput = GenerateDummyBet(finalConsoleOutput);
-    }
-    if (history.Count >= showHistory)
-    {
-        for (int i = history.Count - showHistory; i < history.Count; i++)
-        {
-            consoleOutput += history[i] + " ";
-        }
-        consoleOutput = consoleOutput.Trim();
-        if (consoleOutput.Length > 0)
-        {
-            consoleOutput = "{" + consoleOutput + "} ";
-        }
-    }
-    consoleOutput += "Enter integer: ";
-    return finalConsoleOutput + consoleOutput;
-}
+//string getConsoleOutput()
+//{
+//    string finalConsoleOutput = "";
+//    string consoleOutput = "";
+//    if (!lastPrediction.Equals(""))
+//    {
+//        finalConsoleOutput = lastPrediction + "\n\n";
+//        lastPrediction = "";
+//    }
+//    else if (additionalOutput.Trim().Equals(""))
+//    {
+//        finalConsoleOutput = GenerateDummyBet(finalConsoleOutput);
+//    }
+//    if (history.Count >= showHistory)
+//    {
+//        for (int i = history.Count - showHistory; i < history.Count; i++)
+//        {
+//            consoleOutput += history[i] + " ";
+//        }
+//        consoleOutput = consoleOutput.Trim();
+//        if (consoleOutput.Length > 0)
+//        {
+//            consoleOutput = "{" + consoleOutput + "} ";
+//        }
+//    }
+//    consoleOutput += "Enter integer: ";
+//    return finalConsoleOutput + consoleOutput;
+//}
 
-double findMedian(List<int> a)
-{
-    int n = a.Count;
-    // Check for even case
-    if (n % 2 != 0)
-        return (double)a[n / 2];
+//double findMedian(List<int> a)
+//{
+//    int n = a.Count;
+//    // Check for even case
+//    if (n % 2 != 0)
+//        return (double)a[n / 2];
 
-    return (double)(a[(n - 1) / 2] + a[n / 2]) / 2.0;
-}
+//    return (double)(a[(n - 1) / 2] + a[n / 2]) / 2.0;
+//}
 
 void writeToFile(int newNum)
 {
@@ -886,7 +828,7 @@ foreach (string line in lines)
 {
     if (line.Equals("1") || line.Equals("2") || line.Equals("3") || line.Equals("4"))
     {
-        AddNumber(line, false);
+        AddNumber(line, false);//, "1");
         if (history.Count == historyLength)
         {
             ProcessPatterns(true);
@@ -917,11 +859,6 @@ while (ask)
 {
     if (File.Exists(inputFilename))
     {
-        //Console input
-        //Console.Write(getConsoleOutput());
-        //val = Console.ReadLine();
-        //File input
-        //Console.WriteLine("Input file exists");
         string fileContent = File.ReadAllText(inputFilename);
         if (!string.IsNullOrWhiteSpace(fileContent))
         {
@@ -948,13 +885,13 @@ while (ask)
                     else
                     {
                         double delta = largestBalance - currentbalance;
+                        delta = Math.Round(delta, 2);
                         if (delta > carryforwardDebt)
                         {
                             carryforwardDebt = delta;
                             if (carryforwardDebt > largestCarryForwardDebt)
                             {
                                 largestCarryForwardDebt = carryforwardDebt;
-                                largestCarryForwardDebt = Math.Round(largestCarryForwardDebt, 2);
                                 Console.WriteLine("Current Balance: $" + currentbalance + ", Largest Balance: $" + largestBalance + ", Delta: $" + delta + ", Largest Debt: $" + largestCarryForwardDebt);
                             }
                         }
@@ -965,6 +902,8 @@ while (ask)
                     // Failed to parse as double, handle the error here
                     Console.WriteLine("Failed to parse the balance as a double.");
                 }
+
+                AddNumber(inputContents, true);//, );
 
                 //Old way of calculating debt
                 //if (inputContents == predictedBetNumber)
@@ -1001,89 +940,85 @@ while (ask)
                 //}
 
 
-                fileOutput = "";
-                val = File.ReadLines(inputFilename).First();
-                //Console.WriteLine("Input file value: " + val);
-                if (val == null || val.Trim().Equals(""))
-                {
-                    ask = false;
-                }
-                else if (val.StartsWith("!"))
-                {
-                    val = val.Substring(1);
-                    try
-                    {
-                        nextBet = int.Parse(val);
-                    }
-                    catch
-                    {
-
-                    }
-                }
-                //else if (val.StartsWith("/"))
+                //fileOutput = "";
+                //val = File.ReadLines(inputFilename).First();
+                ////Console.WriteLine("Input file value: " + val);
+                //if (val == null || val.Trim().Equals(""))
+                //{
+                //    ask = false;
+                //}
+                //else if (val.StartsWith("!"))
                 //{
                 //    val = val.Substring(1);
                 //    try
                 //    {
-                //        int divide = int.Parse(val);
-                //        Console.WriteLine(divide);
-                //        multiplier = multiplier / divide;
+                //        nextBet = int.Parse(val);
                 //    }
                 //    catch
                 //    {
-                //        multiplier = baseMultiplier;
-                //    }
-                //    CalculateRequiredBal();
-                //}
-                else if (val.StartsWith("<"))
-                {
 
-                    val = val.Substring(1);
-                    try
-                    {
-                        focus = int.Parse(val) - 1;
-                    }
-                    catch
-                    {
-                        if (val.Equals("v"))
-                        {
-                            verbose = !verbose;
-                        }
-                        //Deal with different characters like undo, etc.
-                    }
-                    nextBet = 0;
-                }
-                else
-                {
-                    if (val.Length > 1)
-                    {
-                        //StreamWriter writer = new StreamWriter(filePath);
-                        //writer.Write(string.Empty);
-                        //writer.Close();
-                        //System.IO.File.WriteAllText(@"/Users/ramiemera/Documents/Rollbot/CoinFlip/SanTan/data.txt", string.Empty);
-                        foreach (char c in val)
-                        {
-                            try
-                            {
-                                AddNumber(c.ToString(), true);
-                            }
-                            catch
-                            {
-                                //Deal with different characters like undo, etc.
-                            }
-                        }
-                    }
-                    try
-                    {
-                        AddNumber(val, true);
-                    }
-                    catch
-                    {
-                        //Deal with different characters like undo, etc.
-                    }
-                    //Do next bet analysis here
-                    //nextBet = 0;
-                }
+                //    }
+                //}
+                ////else if (val.StartsWith("/"))
+                ////{
+                ////    val = val.Substring(1);
+                ////    try
+                ////    {
+                ////        int divide = int.Parse(val);
+                ////        Console.WriteLine(divide);
+                ////        multiplier = multiplier / divide;
+                ////    }
+                ////    catch
+                ////    {
+                ////        multiplier = baseMultiplier;
+                ////    }
+                ////    CalculateRequiredBal();
+                ////}
+                //else if (val.StartsWith("<"))
+                //{
+
+                //    val = val.Substring(1);
+                //    try
+                //    {
+                //        focus = int.Parse(val) - 1;
+                //    }
+                //    catch
+                //    {
+                //        if (val.Equals("v"))
+                //        {
+                //            verbose = !verbose;
+                //        }
+                //        //Deal with different characters like undo, etc.
+                //    }
+                //    nextBet = 0;
+                //}
+                //else
+                //{
+                //    if (val.Length > 1)
+                //    {
+                //        foreach (char c in val)
+                //        {
+                //            try
+                //            {
+                //                AddNumber(c.ToString(), true, "2");
+                //            }
+                //            catch
+                //            {
+                //                //Deal with different characters like undo, etc.
+                //            }
+                //        }
+                //    }
+                //    try
+                //    {
+                //        AddNumber(val, true, "3");
+                //    }
+                //    catch
+                //    {
+                //        //Deal with different characters like undo, etc.
+                //    }
+                //    //Do next bet analysis here
+                //    //nextBet = 0;
+                //}
                 if (history.Count == historyLength)
                 {
                     ProcessPatterns(false);
