@@ -50,14 +50,14 @@ def main():
             # Find all elements containing text that starts with "$"
             dollar_elems = driver.find_elements_by_xpath(".//*[starts-with(text(), '$')]")
 
-            if len(dollar_elems) > 5:
-                value_4 = float(dollar_elems[4].text.replace(",", "").replace("$", ""))
-                value_5 = float(dollar_elems[5].text.replace(",", "").replace("$", ""))
-                if value_4 >= value_5:
-                    print('Reached Required Limit...Stopping Program')
-                    quit()
-            else:
-                print('Check if you are using the right funds')
+            #if len(dollar_elems) > 5:
+            #    value_4 = float(dollar_elems[4].text.replace(",", "").replace("$", ""))
+            #    value_5 = float(dollar_elems[5].text.replace(",", "").replace("$", ""))
+            #    if value_4 >= value_5:
+            #        print('Reached Required Limit...Stopping Program')
+            #        quit()
+            #else:
+            #    print('Check if you are using the right funds')
 
             inputString = dollar_elems[1].text
 

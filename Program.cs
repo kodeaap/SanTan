@@ -18,13 +18,15 @@ int thresholdBets = 121;// [Working 30, 61] [Test 121]
 int badRuns = 0;
 double carryforwardDebt = 0;
 double largestCarryForwardDebt = 0;
-double divideDebt = 10.0;
+double divideDebt = 20.0;
 double chargingDebt = 0;
+double minCharge = 1.0;// dummyBet * divideDebt;
 string inputContents = "0";
 string outputContents = "0";
 string predictedBetNumber = "0";
 string predictedBetAmount = "0";
 double worstBet = 0.0;
+//bool isBetOne = false;
 //for (int x = 0; x < betCount; x++)
 while (betAmount < thresholdBets)
 {
@@ -467,12 +469,15 @@ void ProcessPatterns(bool isPrivate)
                     }
                     if (isTest)
                     {
-                        fileOutput = "0.01," + predictedBet;
+                        fileOutput = dummyBet + "," + predictedBet;
                     }
                     else
                     {
-                        //fileOutput = betList[roundIndex] * multiplier + "," + predictedBet;
                         fileOutput = betList[roundIndex] + "," + predictedBet;
+                        if (roundIndex == 0)
+                        {
+                            AdjustBetAmount(betList[roundIndex], predictedBet);
+                        }
                     }
                 }
                 else
@@ -487,7 +492,7 @@ void ProcessPatterns(bool isPrivate)
                     }
                     if (isTest)
                     {
-                        fileOutput = "0.01," + predictedBet;
+                        fileOutput = dummyBet + "," + predictedBet;
                     }
                     else
                     {
@@ -501,12 +506,15 @@ void ProcessPatterns(bool isPrivate)
                 lastPrediction = "BET: $" + betList[roundIndex] + " @[ " + predictedBet + " ]";
                 if (isTest)
                 {
-                    fileOutput = "0.01," + predictedBet;
+                    fileOutput = dummyBet + "," + predictedBet;
                 }
                 else
                 {
-                    //fileOutput = (betList[roundIndex] * multiplier) + "," + predictedBet;
                     fileOutput = betList[roundIndex] + "," + predictedBet;
+                    if (roundIndex == 0)
+                    {
+                        AdjustBetAmount(betList[roundIndex], predictedBet);
+                    }
                 }
             }
         }
@@ -580,26 +588,58 @@ void ProcessPatterns(bool isPrivate)
     }
 }
 
+void AdjustBetAmount(double currentBet, int betChoice)
+{
+    if (carryforwardDebt >= minCharge)
+    {
+        chargingDebt = carryforwardDebt / divideDebt;
+        chargingDebt = Math.Round(chargingDebt, 2);
+        if (chargingDebt < 1)
+        {
+            chargingDebt = 1;
+        }
+    }
+    if (roundIndex == 0 && currentBet == betList[roundIndex] && carryforwardDebt > 0 && chargingDebt >= minCharge)
+    {
+        //isBetOne = true;
+        currentBet += chargingDebt;
+        currentBet = Math.Round(currentBet, 2);
+        //This might break due to risk and aggressive behaviro to get back to normal and make up for loses
+        fileOutput = currentBet + "," + betChoice;
+        Console.WriteLine("Adjusted Bet: $" + currentBet + ", Charging Debt: " + chargingDebt);
+    }
+    //return currentBet;
+}
+
 void writeToOutput(){
     double currentBet;
+    //isBetOne = false;
     if (double.TryParse(fileOutput.Split(',')[0], out currentBet))
     {
-        if (currentBet == betOne && carryforwardDebt > 0)
-        {
-            chargingDebt = carryforwardDebt / divideDebt;
-            currentBet += chargingDebt;
-            currentBet = Math.Round(currentBet, 2);
-            Console.WriteLine("Special Bet: $" + currentBet);
-        }
+        //Console.WriteLine("Current Bet: " + currentBet);
+        //Console.WriteLine("Bet One: " + betOne);
+        //Console.WriteLine("Charging Debt: " + chargingDebt);
+
+        //if (roundIndex == 0 && predictedLoses >= 0 && predictedLoses <= betTurns && currentBet == betOne && carryforwardDebt > 0 && chargingDebt >= (dummyBet * divideDebt))
+        //{
+        //    //isBetOne = true;
+        //    currentBet += chargingDebt;
+        //    currentBet = Math.Round(currentBet, 2);
+        //    //This might break due to risk and aggressive behaviro to get back to normal and make up for loses
+        //    fileOutput = currentBet + "," + fileOutput.Split(',')[1];
+        //    //Console.WriteLine("Special Bet: $" + currentBet);
+        //}
         if (currentBet > worstBet)
         {
             worstBet = currentBet;
+            worstBet = Math.Round(worstBet, 2);
             Console.WriteLine("Worst Bet: $" + worstBet);
         }
     }
 
     using (StreamWriter outputFile = File.CreateText(outputFilename))
     {
+        Console.WriteLine("Betting: $" + fileOutput.Split(",")[0]);
         outputFile.WriteLine(fileOutput);
         outputContents = fileOutput.Trim();
         string[] outputValues = outputContents.Split(',');
@@ -901,6 +941,9 @@ while (ask)
                     if (currentbalance > largestBalance)
                     {
                         largestBalance = currentbalance;
+                        Console.WriteLine("Largest Balance: $" + largestBalance);
+                        chargingDebt = 0;
+                        carryforwardDebt = 0;
                     }
                     else
                     {
@@ -908,12 +951,12 @@ while (ask)
                         if (delta > carryforwardDebt)
                         {
                             carryforwardDebt = delta;
-                        }
-
-                        if (carryforwardDebt > largestCarryForwardDebt)
-                        {
-                            largestCarryForwardDebt = carryforwardDebt;
-                            Console.WriteLine("Current Debt: " + largestCarryForwardDebt);
+                            if (carryforwardDebt > largestCarryForwardDebt)
+                            {
+                                largestCarryForwardDebt = carryforwardDebt;
+                                largestCarryForwardDebt = Math.Round(largestCarryForwardDebt, 2);
+                                Console.WriteLine("Current Balance: $" + currentbalance + ", Largest Balance: $" + largestBalance + ", Delta: $" + delta + ", Largest Debt: $" + largestCarryForwardDebt);
+                            }
                         }
                     }
                 }
